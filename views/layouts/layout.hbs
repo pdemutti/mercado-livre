@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>	<html class="no-js  lt-ie10 lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>	<html class="no-js lt-ie10 lt-ie9 ie8"> <![endif]-->
+<!--[if IE 9]>	<html class="no-js lt-ie10 ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="/theme/chico.min.css" />
+  <link rel="stylesheet" as="style" href="/css/main.css" />
+
+</head>
+<body>
+  <header class="ch-box-container header-ml">
+    <h1 class="logo">{{title}}</h1>
+    <form id="formSearch" method="get">
+      {{{input_text ax id='ax'}}}
+      <input type="button" class="ch-btn-skin ch-btn-small" value="Buscar">
+    </form>
+  </header>
+
+  <div class="grid">
+    <div id="result-list" class="ch-box-container">
+      {{{ body }}}
+    </div>
+  </div>
+  <script src="https://ui.mlstatic.com/chico/tiny/0.2.3/tiny.min.js"></script>
+  <script src="/theme/chico.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.js" charset="utf-8"></script>
+  <script src="/js/dist/bundle.js" charset="utf-8"></script>
+</body>
+</html>

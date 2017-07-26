@@ -1,0 +1,41 @@
+
+.result-items {
+  display: flex;
+  article {
+    width: 100%;
+    list-style: none;
+    font-family: roboto;
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.26);
+    margin: 0 0 15px;
+    .bt-ml {
+      position: absolute;
+      right: 0;
+    }
+    img {
+
+    }
+    @media all and (max-width: 768px) {
+
+    }
+    @media all and (max-width: 375px) {
+
+    }
+    figure {
+
+    }
+    @media all and (max-width: 800px) {
+
+    }
+  }
+  }
+
+  @media all and (max-width: 768px) {
+    article {
+
+    }
+  }

@@ -1,0 +1,68 @@
+@import "buy-box";
+
+.description {
+  padding: 22px;
+  width: 100%;
+  order: 4;
+  img {
+    width: 100%;
+  }
+  h2 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 32px;
+    line-height: 1;
+  }
+}
+
+.show-result {
+  font-family: Roboto;
+  width: 80%;
+  min-height: min-content;
+  background: #fff;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  .bread-nav {
+    order: 1;
+    width: 100%;
+    background: #eee;
+    padding: 12px 0;
+    ul {
+      display: flex;
+      li {
+        display: flex;
+      }
+      a {
+        padding-top: 3px;
+        color: #333;
+      }
+    }
+  }
+  figure {
+    width: 60%;
+    justify-content: center;
+    display: flex;
+    order: 2;
+    img {
+      margin-left:22px;
+    }
+  }
+}
+
+@media all and (max-width: 375px) {
+  .show-result {
+    width: 100%;
+    figure {
+      width: 100%;
+      justify-content: center;
+      display: flex;
+      img {
+        margin:0;
+      }
+      .description {
+        padding: 0;
+      }
+    }
+  }
+}

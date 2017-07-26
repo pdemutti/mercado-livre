@@ -1,0 +1,20 @@
+<ul class="show-list ch-list">
+  {{# each products as |prod|}}
+    <li class="result-items">
+      <article class="">
+        <a href="/items/{{prod.id}}">
+          <figure>
+            <img src="{{prod.thumbnail}}" alt="">
+          </figure>
+          </a>
+          <div class="card">
+            <div class="price">$ {{prod.price}}</div>
+            <h2 class="title">
+              <a href="/items/{{prod.id}}">{{prod.title}}</a>
+            </h2>
+            <div class="description">{{prod.description}}</div>
+          </div>
+      </article>
+    </li>
+  {{/each}}
+</ul>
