@@ -3,76 +3,41 @@ var App = App || {};
 App.MercadoLivre = (function ($, win, doc) {
   'use strict';
 
-    var params = {};
-
     function setup () {
-      var page = doc.getElementsByClassName('item-page');
-      var elements = doc.getElementsByClassName('filter-field');
-      for (var i = 0; i < elements.length; i++) {
+      // for (var i = 0; i < elements.length; i++) {
+      //   addEvent(elements[i], 'change', function change() {
+      //     filter();
+      //   });
+      // }
+      //
+      // for(i = 0; i < page.length; i ++) {
+      //   addEvent(page[i], 'click', paginate);
+      // }
+      // var carousel = new ch.Carousel(ch('#dm_crs_df')[0], {
+      //     autoHeight: false,
+      //     'async': 10
+      // });
 
-        /* ONLY NUMBER ALLOWED */
-        var RemoveE = function (options) {
-            if(this.prepare(options)) {
-            this.bind(options);
-          }
-        }
-        RemoveE.prototype.bind = function (options) {
-          addEvent(elements[i], 'keydown', this.removeLetterE);
-        }
-        RemoveE.prototype.prepare = function (options) {
-          this.input = doc.getElementsByClassName(options.class);
-          this.name = this.input ? this.input.name : '';
-          return this.input;
-        }
-        RemoveE.prototype.removeLetterE = function (evt) {
-          return evt.key == 'e' ? evt.preventDefault() : true;
-        }
-        new RemoveE({'class': 'filter-field'});
 
-        addEvent(elements[i], 'change', function change() {
-          filter();
-        });
+      // live('.search-bt', 'click', function(el, e, dataEl){
+      //   var keySearch = doc.getElementById('search-products').value;
+      //   location.replace('/search/' + keySearch);
+      //   // console.log(keySearch)
+      //   el.preventDefault();
+      // });
+
+      var caroulselEl = document.getElementById("dm_crs_df");
+      if (caroulselEl && caroulselEl.hasChildNodes()) {
+        setTimeout(function(){
+          var el = ch('#dm_crs_df')[0];
+          var carousel = new ch.Carousel(el, {
+              'fx': false,
+              'autoHeight': false
+          })
+        }, 100);
       }
 
-      for(i = 0; i < page.length; i ++) {
-        addEvent(page[i], 'click', paginate);
-      }
     }
-    function onlyValid(){
-      var RemoveE = function (options) {
-          if(this.prepare(options)) {
-          this.bind(options);
-        }
-      }
-      RemoveE.prototype.bind = function (options) {
-        addEvent(elements[i], 'keydown', this.removeLetterE);
-      }
-      RemoveE.prototype.prepare = function (options) {
-        this.input = doc.getElementsByClassName(options.class);
-        this.name = this.input ? this.input.name : '';
-        return this.input;
-      }
-      RemoveE.prototype.removeLetterE = function (evt) {
-        return evt.key == 'e' ? evt.preventDefault() : true;
-      }
-        new RemoveE({'class': 'filter-field'});
-    }
-
-    function getParams() {
-      var urlEncondedParams = '';
-      var i;
-      var prop;
-      var date = new Date();
-
-      for (prop in params) {
-        urlEncondedParams += prop + "=" + params[prop] + "&";
-      }
-
-      urlEncondedParams += '_' + date.getTime();
-
-      return urlEncondedParams;
-    }
-
     function getData (url, success){
       var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
       xhr.open('GET', url + "?" + getParams() );
@@ -91,6 +56,17 @@ App.MercadoLivre = (function ($, win, doc) {
       current.querySelector(selector).innerHTML = live.querySelector(selector).innerHTML;
 
       setup();
+    }
+    function live(selector, event, callback, context) {
+      addEvent(context || document, event, function(e) {
+          var qs = (context || document).querySelectorAll(selector);
+          if (qs) {
+              var el = e.target || e.srcElement, index = -1;
+              var dataEl = el.dataset.id;
+              while (el && ((index = Array.prototype.indexOf.call(qs, el)) === -1)) el = el.parentElement;
+              if (index > -1) callback.call(el, e, dataEl);
+          }
+      });
     }
     function addEvent (el, type, handler){
       if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);

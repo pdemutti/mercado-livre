@@ -22,13 +22,15 @@
   }
   .ch-btn {
     width: 90%;
+    height: 40px;
+    align-self: center;
   }
 }
 @media all and (max-width: 375px) {
   .buy-box {
     width: 100%;
     .title, .price {
-      padding: 0 0 0 20px;
+      align-self: center;
     }
   }
 }

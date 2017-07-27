@@ -1,9 +1,30 @@
+/** FOOTER CARD **/
+/* FILTER */
+/** FOOTER CARD **/
+/* FILTER */
+#result-list {
+  display: -webkit-flex;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+  padding-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: min-content; }
+  #result-list .show-list {
+    width: 80%;
+    flex-direction: column;
+    min-height: min-content;
+    background: #fff;
+    flex-wrap: wrap;
+    display: flex; }
+
 .result-items {
   display: flex; }
   .result-items article {
     width: 100%;
     list-style: none;
-    font-family: roboto;
+    font-family: Proxima Nova, Helvetica Neue, Roboto, "Open Sans", Helvetica, Arial, sans-serif;
     position: relative;
     align-items: center;
     display: flex;
@@ -14,42 +35,38 @@
     .result-items article .bt-ml {
       position: absolute;
       right: 0; }
-
-#result-list {
-  display: -webkit-flex;
-  -webkit-flex-flow: row;
-  flex-flow: row;
-  padding-top: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  min-height: min-content; }
-
-.show-list {
-  width: 80%;
-  flex-direction: column;
-  min-height: min-content;
-  background: #fff;
-  flex-wrap: wrap;
-  display: flex; }
-
-@media all and (max-width: 1024px) {
-  .aside-1 ul {
-    display: flex; } }
-
-@media all and (max-width: 1024px) {
-  .grid {
-    display: -webkit-column;
-    -webkit-flex-flow: column;
-    flex-flow: column; } }
-
-@media all and (max-width: 768px) {
-  body {
-    margin: 0; }
-  .grid {
-    display: -webkit-column;
-    -webkit-flex-flow: column;
-    flex-flow: column; } }
+    .result-items article .price {
+      font-size: 24px; }
+    .result-items article small {
+      position: static;
+      display: block;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: .2px;
+      color: #666; }
+    .result-items article .free-shipping {
+      color: #468847;
+      flex: 1 1 auto;
+      overflow: auto;
+      display: flex;
+      flex-direction: row-reverse;
+      margin-right: 23px; }
+      .result-items article .free-shipping span {
+        color: #468847;
+        font-size: 16px;
+        padding: 2px 0; }
+    @media all and (max-width: 375px) {
+      .result-items article #result-list .show-list {
+        width: 100%; } }
+    .result-items article figure {
+      border-radius: 4px;
+      display: inline-block;
+      height: 90px;
+      margin: 24px;
+      min-width: 90px;
+      overflow: hidden;
+      width: 90px; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -100,6 +117,15 @@ table {
 
 /** FOOTER CARD **/
 /* FILTER */
+#formSearch input[type="text"] {
+  height: 20px; }
+
+#formSearch button {
+  padding: 6px 8px;
+  line-height: 19px; }
+  #formSearch button span {
+    margin: 0; }
+
 .header-ml {
   display: flex;
   justify-content: center;
@@ -113,6 +139,7 @@ table {
   background-color: #fff059;
   border-bottom: 1px solid #d9d9d9;
   padding-bottom: 0;
+  padding-top: 0;
   margin-bottom: 0; }
 
 .search-field {
@@ -162,20 +189,20 @@ h1.logo {
     font-weight: 300;
     margin-bottom: 30px; }
   .buy-box .ch-btn {
-    width: 90%; }
+    width: 90%;
+    height: 40px;
+    align-self: center; }
 
 @media all and (max-width: 375px) {
   .buy-box {
     width: 100%; }
     .buy-box .title, .buy-box .price {
-      padding: 0 0 0 20px; } }
+      align-self: center; } }
 
 .description {
   padding: 22px;
   width: 100%;
   order: 4; }
-  .description img {
-    width: 100%; }
   .description h2 {
     font-weight: 600;
     font-size: 24px;
@@ -183,7 +210,7 @@ h1.logo {
     line-height: 1; }
 
 .show-result {
-  font-family: Roboto;
+  font-family: Proxima Nova, Helvetica Neue, Roboto, "Open Sans", Helvetica, Arial, sans-serif;
   width: 80%;
   min-height: min-content;
   background: #fff;
@@ -199,16 +226,21 @@ h1.logo {
       display: flex; }
       .show-result .bread-nav ul li {
         display: flex; }
-      .show-result .bread-nav ul a {
+      .show-result .bread-nav ul span {
         padding-top: 3px;
         color: #333; }
   .show-result figure {
     width: 60%;
     justify-content: center;
     display: flex;
-    order: 2; }
+    order: 2;
+    margin-top: 22px; }
     .show-result figure img {
-      margin-left: 22px; }
+      margin-left: 22px;
+      flex: 1;
+      object-fit: contain; }
+    .show-result figure li.ch-carousel-item {
+      display: flex; }
 
 @media all and (max-width: 375px) {
   .show-result {

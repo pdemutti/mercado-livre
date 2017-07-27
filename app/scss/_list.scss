@@ -1,10 +1,36 @@
+@import "variables";
+
+#result-list {
+  display: -webkit-flex;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+  padding-top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: min-content;
+  .show-list {
+    width: 80%;
+    flex-direction: column;
+    min-height: min-content;
+    background: #fff;
+    flex-wrap: wrap;
+    display: flex;
+  }
+}
+
+
+
+@media all and (max-width: 768px) {
+
+}
 
 .result-items {
   display: flex;
   article {
     width: 100%;
     list-style: none;
-    font-family: roboto;
+    font-family: $font-family-primary;
     position: relative;
     align-items: center;
     display: flex;
@@ -19,14 +45,49 @@
     img {
 
     }
+    .price {
+      font-size: 24px;
+    }
+    small {
+      position: static;
+      display: block;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: .2px;
+      color: #666;
+    }
+    .free-shipping {
+      color: #468847;
+      flex: 1 1 auto;
+      overflow: auto;
+      display: flex;
+      flex-direction: row-reverse;
+      margin-right: 23px;
+      span {
+        color: #468847;
+        font-size: 16px;
+        padding: 2px 0;
+      }
+    }
+
     @media all and (max-width: 768px) {
 
     }
     @media all and (max-width: 375px) {
-
+      #result-list .show-list {
+        width: 100%;
+      }
     }
-    figure {
 
+    figure {
+      border-radius: 4px;
+      display: inline-block;
+      height: 90px;
+      margin: 24px;
+      min-width: 90px;
+      overflow: hidden;
+      width: 90px;
     }
     @media all and (max-width: 800px) {
 

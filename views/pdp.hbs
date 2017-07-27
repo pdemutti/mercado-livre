@@ -3,9 +3,9 @@
   <div class="bread-nav">
     <ul class="breadcrumb-list">
        <li>
-          <a class="breadcrumb " href="https://listado.mercadolibre.com.ar/instrumentos-musicales/" title="">
-          Instrumentos Musicales
-          </a>
+          <span>
+            Path
+          </span>
           <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon ui-icon--chevron-right">
              <g fill="#000" fill-rule="evenodd">
                 <path d="M6.646 5.354l4 4 .354.353.707-.707-.353-.354-4-4L7 4.293 6.293 5z"></path>
@@ -14,9 +14,9 @@
           </svg>
        </li>
        <li>
-          <a class="breadcrumb " href="https://listado.mercadolibre.com.ar/guitarras/" title="">
-          Guitarras
-          </a>
+         <span>
+           for
+         </span>
           <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon ui-icon--chevron-right">
              <g fill="#000" fill-rule="evenodd">
                 <path d="M6.646 5.354l4 4 .354.353.707-.707-.353-.354-4-4L7 4.293 6.293 5z"></path>
@@ -25,42 +25,29 @@
           </svg>
        </li>
        <li>
-          <a class="breadcrumb " href="https://listado.mercadolibre.com.ar/guitarras-electricas/" title="">
-          Eléctricas
-          </a>
-          <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon ui-icon--chevron-right">
-             <g fill="#000" fill-rule="evenodd">
-                <path d="M6.646 5.354l4 4 .354.353.707-.707-.353-.354-4-4L7 4.293 6.293 5z"></path>
-                <path d="M7.354 13.354l4-4L11.707 9 11 8.293l-.354.353-4 4-.353.354.707.707z"></path>
-             </g>
-          </svg>
-       </li>
-       <li>
-          <a class="breadcrumb " href="https://listado.mercadolibre.com.ar/guitarras-electricas-dean/" title="">
-          Dean
-          </a>
-          <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon ui-icon--chevron-right">
-             <g fill="#000" fill-rule="evenodd">
-                <path d="M6.646 5.354l4 4 .354.353.707-.707-.353-.354-4-4L7 4.293 6.293 5z"></path>
-                <path d="M7.354 13.354l4-4L11.707 9 11 8.293l-.354.353-4 4-.353.354.707.707z"></path>
-             </g>
-          </svg>
+         <span>
+           {{titlePdp}}
+         </span>
        </li>
     </ul>
   </div>
-  <figure>
-    {{# each pictures as |pic|}}
-      {{#if @first}}
-        <img id="{{pic.id}}" src="{{pic.secure_url}}" alt="">
-      {{/if}}
-    {{/each}}
+  <figure class="ch-carousel">
+    <div id="dm_crs_df">
+      <ul>
+        {{# each pictures as |pic|}}
+          <li>
+            <img id="{{pic.id}}" itemprop="image" src="{{pic.secure_url}}">
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </figure>
   <div class="buy-box">
     <h1 class="title">
       {{titlePdp}}
     </h1>
     <div class="price">$ {{price}}</div>
-    <input type="button" class="ch-btn" title="titlePdp" value="Comprar Agora" />
+    <input type="button" class="ch-btn" title="titlePdp" value="Comprar" />
   </div>
   <div class="description">
     <h2>Descripción del producto</h2>

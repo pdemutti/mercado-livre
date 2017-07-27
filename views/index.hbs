@@ -12,8 +12,15 @@
             <h2 class="title">
               <a href="/items/{{prod.id}}">{{prod.title}}</a>
             </h2>
+            <small>{{seller_address.state.name}}</small>
             <div class="description">{{prod.description}}</div>
           </div>
+            {{#if prod.shipping.free_shipping}}
+            <div class="free-shipping">
+              Envío gratis
+              <span class="ch-icon-truck"></span>
+            </div>
+            {{/if}}
       </article>
     </li>
   {{/each}}

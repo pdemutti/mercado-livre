@@ -10,6 +10,12 @@ var runTimestamp = Math.round(Date.now()/1000);
 
 
 
+// COPY CHICO ASSETS
+gulp.task('copy', function() {
+  return gulp.src(['node_modules/chico/dist/ui/**/*', 'node_modules/chico/dist/assets/**/*'])
+    .pipe(gulp.dest('./public/theme/assets'))
+})
+
 gulp.task('sass', function() {
     gulp.src('./app/scss/*.scss')
         .pipe(sass().on('error', sass.logError))

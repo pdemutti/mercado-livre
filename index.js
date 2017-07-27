@@ -18,14 +18,34 @@ var hbs = exphbs.create({
       id = options.hash.id;
       return '<input type="text" placeholder="Estoy Buscando" max-length="120" id="'+ id +'" class="search-field" name="'+ id +'">';
     },
-  }
+    breadcrumb: function (context, options) {
+      var category = context.data.root.category;
+      var html = "<ul class='product-list'>";
+
+       axios.get('https://api.mercadolibre.com/categories/' + category)
+        .then((response) => {
+            var res = response;
+            var myStringArray = res.data.path_from_root;
+
+            for(var i=0, j=myStringArray.length; i<j; i++) {
+              html = html + "<li>" + myStringArray[i].name + "</li>";
+            }
+            html +=  "</ul>";
+          })
+          .catch((error) => {
+            console.log(error)
+          });
+          return html;
+
+      }
+    }
 });
 app.set('views', './views')
 app.set('view engine', 'hbs')
 
 app.get('/', function (req, res) {
 
-  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=:' + req.query)
+  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query)
   .then(function (response) {
     res.render('index', {
       title: 'ML - Anúncios',
@@ -38,13 +58,15 @@ app.get('/', function (req, res) {
   });
 })
 
-app.get('/search/:search', function (req, res, next) {
-  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.params.search)
+app.get('/items?:search', function (req, res, next) {
+  axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.search)
   .then(function (response) {
-    console.log(response.data.results)
+    var results = response.data.results;
     res.render('index', {
       title: 'ML - Search',
-      products: response.data.results,
+      products: results,
+      shipping: results.shipping,
+      seller_address: results.seller_address,
       helpers: hbs.helpers
     })
   })
@@ -65,8 +87,7 @@ app.get('/items/:tagId', function (req, res, next) {
 
   axios.all([getProductDetails(), getProductDescription()])
     .then(axios.spread(function (prdDt, prdDes) {
-      // console.log(prdDt.data);
-        res.render('pdp', {
+        var obj = {
           titlePage: 'ML - Produto',
           idPdp: prdDt.data.id,
           titlePdp: prdDt.data.title,
@@ -77,26 +98,14 @@ app.get('/items/:tagId', function (req, res, next) {
           descriptionTxt: prdDes.data.text,
           descriptionPlainTxt: prdDes.data.plain_text,
           descriptionSnapshotUrl: prdDes.data.snapshot.url,
+          category: prdDt.data.category_id,
           helpers: hbs.helpers
-        })
+        };
+        res.render('pdp', obj);
     }));
 });
 
-function getParams(params) {
-  var urlEncondedParams = '';
-  var i;
-  var prop;
-  var date = new Date();
-
-  for (prop in params) {
-    urlEncondedParams += prop + "=" + params[prop] + "&";
-  }
-
-  urlEncondedParams += '_' + date.getTime();
-  return urlEncondedParams;
-}
-
 app.use(express.static('public'));
-app.use('/theme', express.static(__dirname + '/node_modules/chico/dist/ui'));
+// app.use('/theme', express.static(__dirname + '/node_modules/chico/dist/ui'));
 
 app.listen('3001')

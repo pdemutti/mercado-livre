@@ -5,7 +5,7 @@
   width: 100%;
   order: 4;
   img {
-    width: 100%;
+    // width: 100%;
   }
   h2 {
     font-weight: 600;
@@ -16,7 +16,7 @@
 }
 
 .show-result {
-  font-family: Roboto;
+  font-family: $font-family-primary;
   width: 80%;
   min-height: min-content;
   background: #fff;
@@ -33,7 +33,7 @@
       li {
         display: flex;
       }
-      a {
+      span {
         padding-top: 3px;
         color: #333;
       }
@@ -44,8 +44,14 @@
     justify-content: center;
     display: flex;
     order: 2;
+    margin-top: 22px;
     img {
       margin-left:22px;
+      flex: 1;
+      object-fit: contain;
+    }
+    li.ch-carousel-item {
+      display: flex;
     }
   }
 }
