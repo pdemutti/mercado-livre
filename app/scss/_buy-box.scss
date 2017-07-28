@@ -1,5 +1,5 @@
 .buy-box {
-  font-family: Proxima Nova,Helvetica Neue,Roboto,Helvetica,Arial,sans-serif;
+  font-family: $font-family-primary;
   padding: 20px 0;
   width: 40%;
   display: flex;
@@ -18,12 +18,30 @@
     line-height: 1em;
     font-size: 44px;
     font-weight: 300;
-    margin-bottom: 30px;
+    width: 90%;
+  }
+  .free-shipping {
+    color: #468847;
+    overflow: auto;
+    height: 19px;
+    display: flex;
+    span {
+      color: #468847;
+      font-size: 16px;
+      margin: 0 7px 0 0;
+    }
   }
   .ch-btn {
     width: 90%;
     height: 40px;
-    align-self: center;
+    align-self: left;
+    margin-top: 30px;
+  }
+  .ch-icon-star {
+    color: #eee;
+  }
+  .full {
+    color: #3e52a1;
   }
 }
 @media all and (max-width: 375px) {

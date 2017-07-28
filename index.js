@@ -98,6 +98,7 @@ app.get('/items/:tagId', function (req, res, next) {
           descriptionTxt: prdDes.data.text,
           descriptionPlainTxt: prdDes.data.plain_text,
           descriptionSnapshotUrl: prdDes.data.snapshot.url,
+          freeShipping: prdDt.data.shipping.free_shipping,
           category: prdDt.data.category_id,
           helpers: hbs.helpers
         };

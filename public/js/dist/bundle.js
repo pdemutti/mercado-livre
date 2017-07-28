@@ -27,16 +27,16 @@ App.MercadoLivre = (function ($, win, doc) {
       //   el.preventDefault();
       // });
 
-      var caroulselEl = document.getElementById("dm_crs_df");
-      if (caroulselEl && caroulselEl.hasChildNodes()) {
-        setTimeout(function(){
-          var el = ch('#dm_crs_df')[0];
-          var carousel = new ch.Carousel(el, {
-              'fx': false,
-              'autoHeight': false
-          })
-        }, 100);
-      }
+      // var caroulselEl = document.getElementById("dm_crs_df");
+      // if (caroulselEl && caroulselEl.hasChildNodes()) {
+      //   setTimeout(function(){
+      //     var el = ch('#dm_crs_df')[0];
+      //     var carousel = new ch.Carousel(el, {
+      //         'fx': false,
+      //         'autoHeight': false
+      //     })
+      //   }, 100);
+      // }
 
     }
     function getData (url, success){
@@ -75,26 +75,6 @@ App.MercadoLivre = (function ($, win, doc) {
     function removeEvent (el, type, handler){
       if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
     }
-
-    function filter () {
-      var form = doc.getElementById('formSearch'),
-        inputs = form.getElementsByTagName('input'),
-        i,
-        input;
-
-      for (i = 0; i < inputs.length; i ++) {
-        input = inputs[i];
-
-        if (input.value !== '') {
-          params[input.getAttribute('name')] = input.value;
-        } else {
-          delete params[input.getAttribute('name')];
-        }
-      }
-
-      getData('/filter', success);
-    }
-
     return {
       'setup': setup
     };

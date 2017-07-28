@@ -35,9 +35,11 @@
     <div id="dm_crs_df">
       <ul>
         {{# each pictures as |pic|}}
-          <li>
-            <img id="{{pic.id}}" itemprop="image" src="{{pic.secure_url}}">
-          </li>
+          {{#if @first}}
+            <li>
+              <img id="{{pic.id}}" itemprop="image" src="{{pic.url}}">
+            </li>
+          {{/if}}
         {{/each}}
       </ul>
     </div>
@@ -47,6 +49,19 @@
       {{titlePdp}}
     </h1>
     <div class="price">$ {{price}}</div>
+    <div class="rate">
+      <span class="ch-icon-star full"></span>
+      <span class="ch-icon-star full"></span>
+      <span class="ch-icon-star full"></span>
+      <span class="ch-icon-star"></span>
+      <span class="ch-icon-star"></span>
+    </div>
+    {{#if freeShipping}}
+      <div class="free-shipping">
+        <span class="ch-icon-truck"></span>
+        Envío gratis
+      </div>
+    {{/if}}
     <input type="button" class="ch-btn" title="titlePdp" value="Comprar" />
   </div>
   <div class="description">

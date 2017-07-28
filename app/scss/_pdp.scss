@@ -4,8 +4,8 @@
   padding: 22px;
   width: 100%;
   order: 4;
-  img {
-    // width: 100%;
+  p {
+    line-height: 1.4em;
   }
   h2 {
     font-weight: 600;
@@ -59,6 +59,15 @@
 @media all and (max-width: 375px) {
   .show-result {
     width: 100%;
+    .bread-nav {
+      span:last-child {
+        display: inline-block;
+        width: 258px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+      }
+    }
     figure {
       width: 100%;
       justify-content: center;
