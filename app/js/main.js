@@ -19,23 +19,12 @@ App.MercadoLivre = (function ($, win, doc) {
       // });
 
 
-      // live('.search-bt', 'click', function(el, e, dataEl){
-      //   var keySearch = doc.getElementById('search-products').value;
-      //   location.replace('/search/' + keySearch);
-      //   // console.log(keySearch)
-      //   el.preventDefault();
-      // });
-
-      // var caroulselEl = document.getElementById("dm_crs_df");
-      // if (caroulselEl && caroulselEl.hasChildNodes()) {
-      //   setTimeout(function(){
-      //     var el = ch('#dm_crs_df')[0];
-      //     var carousel = new ch.Carousel(el, {
-      //         'fx': false,
-      //         'autoHeight': false
-      //     })
-      //   }, 100);
-      // }
+      var buyBtn = document.getElementById("buy-btn");
+      if (buyBtn) {
+        var modalDom = new ch.Modal(ch('#buy-btn')[0], {
+          'content': ch('#dm_mdl_dom_cnt')[0]
+        });
+      }
 
     }
     function getData (url, success){
@@ -49,13 +38,7 @@ App.MercadoLivre = (function ($, win, doc) {
       return xhr;
     }
     function success (data){
-      var current = doc.querySelector('body'),
-          live = doc.createElement('html'),
-          selector = '#result-list';
-      live.innerHTML = data;
-      current.querySelector(selector).innerHTML = live.querySelector(selector).innerHTML;
 
-      setup();
     }
     function live(selector, event, callback, context) {
       addEvent(context || document, event, function(e) {

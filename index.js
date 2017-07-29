@@ -16,29 +16,9 @@ var hbs = exphbs.create({
     },
     input_text: function (context, options) {
       id = options.hash.id;
-      return '<input type="text" placeholder="Estoy Buscando" max-length="120" id="'+ id +'" class="search-field" name="'+ id +'">';
-    },
-    breadcrumb: function (context, options) {
-      var category = context.data.root.category;
-      var html = "<ul class='product-list'>";
-
-       axios.get('https://api.mercadolibre.com/categories/' + category)
-        .then((response) => {
-            var res = response;
-            var myStringArray = res.data.path_from_root;
-
-            for(var i=0, j=myStringArray.length; i<j; i++) {
-              html = html + "<li>" + myStringArray[i].name + "</li>";
-            }
-            html +=  "</ul>";
-          })
-          .catch((error) => {
-            console.log(error)
-          });
-          return html;
-
-      }
+      return '<input type="text" required placeholder="Estoy Buscando" itemtype="//schema.org/SearchAction" max-length="120" id="'+ id +'" class="search-field" name="'+ id +'">';
     }
+  }
 });
 app.set('views', './views')
 app.set('view engine', 'hbs')
@@ -62,11 +42,20 @@ app.get('/items?:search', function (req, res, next) {
   axios.get('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.search)
   .then(function (response) {
     var results = response.data.results;
+    var objOnlyfour = [];
+
+    results.reduce(function(previous, current, index){
+      if(index < 5) {
+        // console.log(current);
+        objOnlyfour.push(current);
+      }
+    });
+
     res.render('index', {
       title: 'ML - Search',
-      products: results,
-      shipping: results.shipping,
-      seller_address: results.seller_address,
+      products: objOnlyfour,
+      shipping: objOnlyfour.shipping,
+      seller_address: objOnlyfour.seller_address,
       helpers: hbs.helpers
     })
   })
@@ -88,7 +77,7 @@ app.get('/items/:tagId', function (req, res, next) {
   axios.all([getProductDetails(), getProductDescription()])
     .then(axios.spread(function (prdDt, prdDes) {
         var obj = {
-          titlePage: 'ML - Produto',
+          title: prdDt.data.title,
           idPdp: prdDt.data.id,
           titlePdp: prdDt.data.title,
           permalink: prdDt.data.permalink,

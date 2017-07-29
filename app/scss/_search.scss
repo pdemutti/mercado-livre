@@ -10,3 +10,19 @@
     }
   }
 }
+
+
+@media all and (max-width: 375px) {
+  #formSearch {
+    input[type="text"] {
+      background: #fff4b9;
+      width: 91%;
+      border: solid 1px #fff4b9;
+      height: 26px;
+      margin-top: 8px;
+    }
+    input:focus {
+      outline-offset: 0;
+    }
+  }
+}

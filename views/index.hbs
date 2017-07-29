@@ -2,9 +2,9 @@
   {{# each products as |prod|}}
     <li class="result-items">
       <article class="">
-        <a href="/items/{{prod.id}}">
+        <a href="/items/{{prod.id}}" title="{{prod.title}}">
           <figure>
-            <img src="{{prod.thumbnail}}" alt="">
+            <img src="{{prod.thumbnail}}" alt="{{prod.title}}" title="{{prod.title}}">
           </figure>
           </a>
           <div class="card">
@@ -13,7 +13,6 @@
               <a href="/items/{{prod.id}}">{{prod.title}}</a>
             </h2>
             <small>{{seller_address.state.name}}</small>
-            <div class="description">{{prod.description}}</div>
           </div>
             {{#if prod.shipping.free_shipping}}
             <div class="free-shipping">

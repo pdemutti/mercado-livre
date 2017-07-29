@@ -1,4 +1,3 @@
-
 <article class="show-result">
   <div class="bread-nav">
     <ul class="breadcrumb-list">
@@ -6,23 +5,13 @@
           <span>
             Path
           </span>
-          <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon ui-icon--chevron-right">
-             <g fill="#000" fill-rule="evenodd">
-                <path d="M6.646 5.354l4 4 .354.353.707-.707-.353-.354-4-4L7 4.293 6.293 5z"></path>
-                <path d="M7.354 13.354l4-4L11.707 9 11 8.293l-.354.353-4 4-.353.354.707.707z"></path>
-             </g>
-          </svg>
+          <i class="ch-icon-chevron-right"></i>
        </li>
        <li>
          <span>
            for
          </span>
-          <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon ui-icon--chevron-right">
-             <g fill="#000" fill-rule="evenodd">
-                <path d="M6.646 5.354l4 4 .354.353.707-.707-.353-.354-4-4L7 4.293 6.293 5z"></path>
-                <path d="M7.354 13.354l4-4L11.707 9 11 8.293l-.354.353-4 4-.353.354.707.707z"></path>
-             </g>
-          </svg>
+         <i class="ch-icon-chevron-right"></i>
        </li>
        <li>
          <span>
@@ -37,7 +26,7 @@
         {{# each pictures as |pic|}}
           {{#if @first}}
             <li>
-              <img id="{{pic.id}}" itemprop="image" src="{{pic.url}}">
+              <img id="{{pic.id}}" src="{{pic.url}}" title="{{../titlePdp}}" alt="{{../titlePdp}}">
             </li>
           {{/if}}
         {{/each}}
@@ -62,11 +51,15 @@
         Envío gratis
       </div>
     {{/if}}
-    <input type="button" class="ch-btn" title="titlePdp" value="Comprar" />
+    <input id="buy-btn" type="button" class="ch-btn" title="{{titlePdp}}" value="Comprar" />
+    <hr>
   </div>
   <div class="description">
-    <h2>Descripción del producto</h2>
+    <h2>
+      <i class="ch-icon-th-list"></i>
+      Descripción del producto
+    </h2>
     <p>{{{descriptionPlainTxt}}}</p>
-    <img src="{{descriptionSnapshotUrl}}" alt="">
+    <img src="{{descriptionSnapshotUrl}}" alt="{{titlePdp}}" title="{{titlePdp}}">
   </div>
 </article>
