@@ -96,6 +96,6 @@ app.get('/items/:tagId', function (req, res, next) {
 });
 
 app.use(express.static('public'));
-// app.use('/theme', express.static(__dirname + '/node_modules/chico/dist/ui'));
+app.use('/theme', express.static(__dirname + '/node_modules/chico/dist/ui'));
 
 app.listen('3001')
