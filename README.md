@@ -60,8 +60,11 @@ Or, simply:
 
 
 ## Chico UI
-> Chico UI is a free and open source collection of easy-to-use UI components for designers and developers.
+> **Chico UI**  is a free and open source collection of easy-to-use UI components for designers and developers.
 http://chico.mercadolibre.com/
+
+## Mobile
+> **Responsively** design using CSS media queries. Better display, emulate on iPhone 6.
 
 ## Structure
 
