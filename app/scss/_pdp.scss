@@ -6,6 +6,7 @@
   order: 4;
   p {
     line-height: 1.4em;
+    text-align: justify;
   }
   h2 {
     font-weight: 600;
@@ -34,8 +35,14 @@
         display: flex;
       }
       span {
-        padding-top: 3px;
+        padding-top: 2px;
         color: #333;
+      }
+      i {
+        color: #666;
+        width: 13px;
+        height: 13px;
+        font-size: 14px;
       }
     }
   }
@@ -62,8 +69,14 @@
     .bread-nav {
       padding: 8px 0 8px 6px;
       font-size: 14px;
-      i {
-        font-size: 14px;
+      ul {
+        i {
+          font-size: 11px;
+          height: 9px;
+        }
+        span {
+          padding-top: 1px;
+        }
       }
       span:last-child {
         display: inline-block;

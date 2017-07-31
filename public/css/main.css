@@ -45,8 +45,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/** FOOTER CARD **/
-/** FOOTER CARD **/
 #result-list {
   display: -webkit-flex;
   -webkit-flex-flow: row;
@@ -144,7 +142,6 @@ table {
       overflow: hidden;
       width: 90px; }
 
-/** FOOTER CARD **/
 #formSearch input[type="text"] {
   height: 20px; }
 
@@ -155,14 +152,16 @@ table {
     margin: 0; }
 
 @media all and (max-width: 375px) {
-  #formSearch input[type="text"] {
-    background: #fff4b9;
-    width: 91%;
-    border: solid 1px #fff4b9;
-    height: 26px;
-    margin-top: 8px; }
-  #formSearch input:focus {
-    outline-offset: 0; } }
+  #formSearch {
+    margin-left: 8px; }
+    #formSearch input[type="text"] {
+      background: #fff4b9;
+      width: 91%;
+      border: solid 1px #fff4b9;
+      height: 26px;
+      margin-top: 8px; }
+    #formSearch input:focus {
+      outline-offset: 0; } }
 
 .header-ml {
   display: flex;
@@ -195,10 +194,6 @@ h1.logo {
     width: 50px; }
 
 /* Medium screens */
-@media all and (max-width: 800px) {
-  .header-ml {
-    /* When on medium sized screens, we center it by evenly distributing empty space around items */ } }
-
 /* Small screens */
 @media all and (max-width: 375px) {
   .header-ml {
@@ -283,7 +278,8 @@ h1.logo {
   width: 100%;
   order: 4; }
   .description p {
-    line-height: 1.4em; }
+    line-height: 1.4em;
+    text-align: justify; }
   .description h2 {
     font-weight: 600;
     font-size: 24px;
@@ -308,8 +304,13 @@ h1.logo {
       .show-result .bread-nav ul li {
         display: flex; }
       .show-result .bread-nav ul span {
-        padding-top: 3px;
+        padding-top: 2px;
         color: #333; }
+      .show-result .bread-nav ul i {
+        color: #666;
+        width: 13px;
+        height: 13px;
+        font-size: 14px; }
   .show-result figure {
     width: 60%;
     justify-content: center;
@@ -329,8 +330,11 @@ h1.logo {
     .show-result .bread-nav {
       padding: 8px 0 8px 6px;
       font-size: 14px; }
-      .show-result .bread-nav i {
-        font-size: 14px; }
+      .show-result .bread-nav ul i {
+        font-size: 11px;
+        height: 9px; }
+      .show-result .bread-nav ul span {
+        padding-top: 1px; }
       .show-result .bread-nav span:last-child {
         display: inline-block;
         width: 258px;

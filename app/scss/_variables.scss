@@ -1,6 +1,6 @@
 $background-color-primary: #fff;
 $header-background-color: #fff059;;
-$background-color-secondary: #cecece;
+$background-color-secondary: #EEEEEE;;
 $text-color-primary: #000;
 $text-color-secondary: #999;
 $text-color-tertiary: #fff;
@@ -10,12 +10,5 @@ $font-size-base: 14px;
 $font-size-large: 18px;
 $font-size-small: 12px;
 
-$current-page: #00acff;
-$paginate-list-color: #00acff;
 $hover-color: #ff6c00;
-
-$main-bg-color: #f1f1f1;
-/** FOOTER CARD **/
-$card-color: #444444;
-$card-bg-buttom: #00acff;
-$card-cod-color: #878787;
+$main-bg-color: $background-color-secondary;

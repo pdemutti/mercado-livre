@@ -4,28 +4,11 @@ App.MercadoLivre = (function ($, win, doc) {
   'use strict';
 
     function setup () {
-      // for (var i = 0; i < elements.length; i++) {
-      //   addEvent(elements[i], 'change', function change() {
-      //     filter();
-      //   });
-      // }
-      //
-      // for(i = 0; i < page.length; i ++) {
-      //   addEvent(page[i], 'click', paginate);
-      // }
-      // var carousel = new ch.Carousel(ch('#dm_crs_df')[0], {
-      //     autoHeight: false,
-      //     'async': 10
-      // });
-
-
-      var buyBtn = document.getElementById("buy-btn");
-      if (buyBtn) {
-        var modalDom = new ch.Modal(ch('#buy-btn')[0], {
-          'content': ch('#dm_mdl_dom_cnt')[0]
-        });
-      }
-
+      /*
+        Basic Javascript Structure for:
+        - Detach a Handler Function to an Event, Such as Click, Focus, or Submit.
+        - Load data asynchronously from the server using GET or POST HTTP requests.  
+      */
     }
     function getData (url, success){
       var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
